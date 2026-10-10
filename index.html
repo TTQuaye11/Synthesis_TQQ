@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Football Team Selector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Football Team Selector</h1>
+      <p>Pick a formation, choose your players, and see your starting XI on the pitch.</p>
+    </header>
+
+    <section class="panel" aria-label="Team builder">
+      <fieldset>
+        <legend>Squad list</legend>
+        <label class="squad-instructions" for="squad-input">
+          Enter one player per line as <strong>Name, Position, Position...</strong> to give a player
+          multiple positions. Positions: GK (goalkeeper),
+          RB (right back), CB (centre back), LB (left back), CDM (defensive midfielder),
+          CM (central midfielder), CAM (attacking midfielder), RM (right midfielder),
+          LM (left midfielder), RW (right winger), LW (left winger), or ST (striker).
+        </label>
+        <textarea id="squad-input" rows="6" placeholder="Goalkeeper Name, GK&#10;Defender Name, CB, LB&#10;Midfielder Name, CM, CDM&#10;Forward Name, LW, ST"></textarea>
+        <button id="load-squad" type="button">Load squad</button>
+        <p id="squad-msg" role="status" aria-live="polite"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Formation</legend>
+        <div class="formations" id="formations"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Goalkeeper</legend>
+        <select id="gk" aria-label="Goalkeeper"></select>
+      </fieldset>
+
+      <div id="groups"></div>
+
+      <button id="create" type="button">Create team</button>
+      <p id="msg" role="alert"></p>
+    </section>
+
+    <section aria-label="Your starting XI">
+      <h2>Your starting XI</h2>
+      <div id="out" class="empty">
+        <p>Your lineup will appear here.<br>Choose players and select Create team.</p>
+      </div>
+      <p class="summary" id="summary"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
